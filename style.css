@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.calculator {
+    background-color: gray;
+    display : flex;
+    flex-direction : column;
+    align-items: center;
+    justify-content: space-between;
+    height: 60vh;
+    width: 45vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+.display {
+    background-color: aquamarine;
+    height: 5vh;
+    width: 40vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Black Ops One', Roboto;
+    font-size: 40px;
+}
+
+.input {
+    display: flex;
+    height: 50vh;
+    width: 40vh;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.row {
+    display: flex;
+}
+
+button {
+    height: 9vh;
+    width: 9vh;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}

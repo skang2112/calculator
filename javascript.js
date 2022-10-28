@@ -43,7 +43,7 @@ numButtons.forEach(numButton => numButton.addEventListener('click', () => {
     if (displayVal === null) {
         displayVal = numButton.textContent;
     } 
-    else if (numButton.textContent === "." && checkDecimal(displayVal)) {
+    else if ((numButton.textContent === "." && checkDecimal(displayVal)) || displayVal.length >= 16) { //second half of the OR statement prevents the display from overflowing
         displayVal = displayVal;
     }
     else {

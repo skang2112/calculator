@@ -54,6 +54,7 @@ let displayVal = display.textContent; //value displayed on screen
 let currentOper = "";
 let a = null;
 let temp = a;
+let repeat = false; //shows whether an operator has already been pressed immediately preceding a new operator button being pressed, to avoid operating multiple times on the same operator
 
 numButtons.forEach(numButton => numButton.addEventListener('click', () => {
     if (displayVal === null) {
@@ -70,18 +71,19 @@ numButtons.forEach(numButton => numButton.addEventListener('click', () => {
         displayVal = displayVal + numButton.textContent;
     }
     display.textContent = displayVal;
+    repeat = false;
 }));
 
 operButtons.forEach(operButton => operButton.addEventListener('click', () => {
-    console.log(currentOper);
-    if (currentOper != "") {
+    console.log(repeat);
+    if (currentOper != "" && !repeat) {
         displayVal = operate(currentOper, a, Number(displayVal));
         display.textContent = displayVal;
-        
     }
     currentOper = operButton.id;
     a = Number(displayVal);
     temp = a;
+    repeat = true;
 }))
 
 clearButton.addEventListener('click', () => { //resets everything to the beginning

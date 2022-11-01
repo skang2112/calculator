@@ -2,6 +2,7 @@ const numButtons = document.querySelectorAll('.num');
 const display = document.querySelector('.display');
 const clearButton = document.getElementById('clear');
 const operButtons = document.querySelectorAll('.oper');
+const equalButton = document.getElementById('=');
 
 
 function add(a,b) {
@@ -75,16 +76,28 @@ numButtons.forEach(numButton => numButton.addEventListener('click', () => {
 }));
 
 operButtons.forEach(operButton => operButton.addEventListener('click', () => {
-    console.log(repeat);
-    if (currentOper != "" && !repeat) {
-        displayVal = operate(currentOper, a, Number(displayVal));
-        display.textContent = displayVal;
+    if (!repeat) { //ensures that if multiple operator buttons are pressed in a row, only the first is taken into account
+        if (currentOper != "") {
+            displayVal = operate(currentOper, a, Number(displayVal));
+            display.textContent = displayVal;
+        }
+        currentOper = operButton.id;
     }
-    currentOper = operButton.id;
     a = Number(displayVal);
     temp = a;
     repeat = true;
 }))
+
+equalButton.addEventListener('click', () => {
+    if (!repeat) {
+        if (currentOper != "") {
+            displayVal = operate(currentOper, a, Number(displayVal));
+            display.textContent = displayVal;
+            repeat = false;
+        }
+        currentOper = "";
+    }
+})
 
 clearButton.addEventListener('click', () => { //resets everything to the beginning
     display.textContent = '';

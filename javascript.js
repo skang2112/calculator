@@ -79,7 +79,7 @@ operButtons.forEach(operButton => operButton.addEventListener('click', () => {
     if (!repeat) { //ensures that if multiple operator buttons are pressed in a row, only the first is taken into account
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            display.textContent = displayVal;
+            display.textContent = ((displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
         }
         currentOper = operButton.id;
     }
@@ -92,7 +92,8 @@ equalButton.addEventListener('click', () => {
     if (!repeat) {
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            display.textContent = displayVal;
+            console.log(""+displayVal.length);
+            display.textContent = ((displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
             repeat = false;
         }
         currentOper = "";

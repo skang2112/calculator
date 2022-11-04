@@ -18,7 +18,7 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    if (b == 0) return "Well done, you broke the world.";
+    if (b === 0) return "NO.";
     else return a/b;
 }
 
@@ -79,7 +79,7 @@ operButtons.forEach(operButton => operButton.addEventListener('click', () => {
     if (!repeat) { //ensures that if multiple operator buttons are pressed in a row, only the first is taken into account
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            display.textContent = ((displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
+            display.textContent = ((""+displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
         }
         currentOper = operButton.id;
     }
@@ -92,8 +92,7 @@ equalButton.addEventListener('click', () => {
     if (!repeat) {
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            console.log(""+displayVal.length);
-            display.textContent = ((displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
+            display.textContent = ((""+displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
             repeat = false;
         }
         currentOper = "";

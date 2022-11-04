@@ -92,17 +92,28 @@ equalButton.addEventListener('click', () => {
     if (!repeat) {
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            display.textContent = ((""+displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
-            repeat = false;
+            if (displayVal === "NO.") {
+                clear();
+            }
+            else {
+                display.textContent = ((""+displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
+                repeat = false;
+            }
+
         }
         currentOper = "";
     }
 })
 
-clearButton.addEventListener('click', () => { //resets everything to the beginning
+function clear() {
     display.textContent = '';
     currentOper = '';
     displayVal = '';
     a = null;
     temp = null;
+}
+
+
+clearButton.addEventListener('click', () => { //resets everything to the beginning
+    clear();
 });

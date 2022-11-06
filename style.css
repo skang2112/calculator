@@ -9,7 +9,7 @@ body {
 }
 
 .calculator {
-    background-color: gray;
+    background-color: #1683BD;
     display : flex;
     flex-direction : column;
     align-items: center;
@@ -18,11 +18,12 @@ body {
     width: 45vh;
     padding: 20px;
     gap: 20px;
+    border-radius: 10px;
 }
 
 .display {
-    background-color: aquamarine;
-    height: 5vh;
+    background-color: rgb(163, 160, 160);
+    height: 8vh;
     width: 40vh;
     max-width: 40vh;
     display: flex;
@@ -31,26 +32,50 @@ body {
     padding: 10px;
     font-family: 'Black Ops One', Roboto;
     font-size: 28px;
+    border: 2px solid #04141d;
+    border-radius: 10px;
 }
 
 .input {
     display: flex;
+    flex-direction: column;
     height: 50vh;
     width: 40vh;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    gap: 2px;
 }
 
-.row {
+.row, .row1 {
     display: flex;
+    gap: 2px;
+}
+
+.row1 {
+    margin-bottom: 3px;
+}
+
+.row1 button {
+    height: 9.5vh;
+    width: 19vh;
+}
+
+.oper {
+    background-color: rgb(207, 172, 69);
+}
+
+#clear {
+    border-radius: 5px 20px 5px;
+}
+
+#delete {
+    border-radius: 20px 5px 20px;
 }
 
 button {
-    height: 9vh;
-    width: 9vh;
-}
-
-.right-block {
-    display: flex;
-    flex-direction: column;
+    height: 9.5vh;
+    width: 9.5vh;
+    border-radius: 8px;
+    border-color: #04141d;
+    border-style: solid;
 }

@@ -60,6 +60,8 @@ function displayNum(current, numButton) {
     else return current + numButton.textContent;
 }
 
+//---------------------------------------------------------------------------------------------------------//
+
 let displayVal = display.textContent; //value displayed on screen
 let currentOper = "";
 let a = null;
@@ -108,6 +110,7 @@ equalButton.addEventListener('click', () => {
             else {
                 display.textContent = ((""+displayVal).length<17 ? displayVal : Number(displayVal).toPrecision(10));
                 repeat = false;
+                messageBoard.textContent = "";
             }
 
         }

@@ -1,9 +1,9 @@
 const numButtons = document.querySelectorAll('.num');
 const display = document.querySelector('.display');
-const clearButton = document.getElementById('clear');
+const clearButton = document.getElementById('C');
 const operButtons = document.querySelectorAll('.oper');
 const equalButton = document.getElementById('equals');
-const deleteButton = document.getElementById('delete');
+const deleteButton = document.getElementById('Backspace');
 
 
 function add(a,b) {
@@ -25,24 +25,25 @@ function divide(a,b) {
 
 function operate(operator, a, b) { //wildly inefficient but will do for now
     switch (operator) {
-        case "add":
+        case "+":
             return add(a,b);
-        case "subtract":
+        case "-":
             return subtract(a,b);
-        case "multiply":
+        case "*":
             return multiply(a,b);
-        case "divide":
+        case "/":
             return divide(a,b);
         default:
             alert("Not an operator");
     }
 }
 
-function displayNum(current, numButton) {
-    if (current === "") {
-        return numButton.textContent;
-    }
-    else return current + numButton.textContent;
+function clear() {
+    display.textContent = '';
+    currentOper = '';
+    displayVal = '';
+    a = null;
+    temp = null;
 }
 
 function checkDecimal(str) { //returns true if there is already a decimal in the display value, false if there isn't
@@ -50,6 +51,13 @@ function checkDecimal(str) { //returns true if there is already a decimal in the
         if (str[i] === ".") return true;
     }
     return false;
+}
+
+function displayNum(current, numButton) {
+    if (current === "") {
+        return numButton.textContent;
+    }
+    else return current + numButton.textContent;
 }
 
 let displayVal = display.textContent; //value displayed on screen
@@ -108,19 +116,20 @@ equalButton.addEventListener('click', () => {
 
 deleteButton.addEventListener('click', () => {
     displayVal = ("" + displayVal).slice(0,-1);
-    console.log(displayVal);
     display.textContent = displayVal;
 })
-
-function clear() {
-    display.textContent = '';
-    currentOper = '';
-    displayVal = '';
-    a = null;
-    temp = null;
-}
-
 
 clearButton.addEventListener('click', () => { //resets everything to the beginning
     clear();
 });
+
+document.onkeydown = function (e) { //Adds keyboard support
+    switch (true) {
+        case ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "+", "-", "*", "/", "C", "Backspace"].includes(e.key):
+            document.getElementById(`${e.key}`).click();
+            break;
+        case e.key === "=" || e.key === "Enter":
+            document.getElementById('equals').click();
+            break;
+    }
+}

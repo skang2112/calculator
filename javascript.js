@@ -3,6 +3,7 @@ const display = document.querySelector('.display');
 const clearButton = document.getElementById('clear');
 const operButtons = document.querySelectorAll('.oper');
 const equalButton = document.getElementById('equals');
+const deleteButton = document.getElementById('delete');
 
 
 function add(a,b) {
@@ -103,6 +104,12 @@ equalButton.addEventListener('click', () => {
         }
         currentOper = "";
     }
+})
+
+deleteButton.addEventListener('click', () => {
+    displayVal = ("" + displayVal).slice(0,-1);
+    console.log(displayVal);
+    display.textContent = displayVal;
 })
 
 function clear() {

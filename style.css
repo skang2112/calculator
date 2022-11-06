@@ -2,10 +2,27 @@
 
 body {
     display : flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100vw;
+    margin: 0;
+    gap: 80px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 60px;
+    background-color: #1683BD;
+}
+
+h1 {
+    padding: 20px;
+    font-family: 'Black Ops One', Roboto;
+    color:#e1e9f3;
 }
 
 .calculator {
@@ -73,6 +90,10 @@ body {
 
 #Backspace {
     border-radius: 20px 5px 20px;
+}
+
+.message {
+    font-family: 'Black Ops One', Roboto;
 }
 
 button {

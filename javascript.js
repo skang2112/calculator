@@ -4,7 +4,7 @@ const clearButton = document.getElementById('C');
 const operButtons = document.querySelectorAll('.oper');
 const equalButton = document.getElementById('equals');
 const deleteButton = document.getElementById('Backspace');
-
+const messageBoard = document.querySelector('.message');
 
 function add(a,b) {
     return a+b;
@@ -19,11 +19,11 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    if (b === 0) return "NO.";
+    if (b === 0) return "NO";
     else return a/b;
 }
 
-function operate(operator, a, b) { //wildly inefficient but will do for now
+function operate(operator, a, b) {
     switch (operator) {
         case "+":
             return add(a,b);
@@ -101,7 +101,8 @@ equalButton.addEventListener('click', () => {
     if (!repeat) {
         if (currentOper != "") {
             displayVal = operate(currentOper, a, Number(displayVal));
-            if (displayVal === "NO.") {
+            if (displayVal === "NO") {
+                messageBoard.textContent = "Uh-oh, looks like you accidentally tried to end the world through paradox. Everything has been reset for your safety.";
                 clear();
             }
             else {

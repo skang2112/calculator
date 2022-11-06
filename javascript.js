@@ -2,7 +2,7 @@ const numButtons = document.querySelectorAll('.num');
 const display = document.querySelector('.display');
 const clearButton = document.getElementById('clear');
 const operButtons = document.querySelectorAll('.oper');
-const equalButton = document.getElementById('=');
+const equalButton = document.getElementById('equals');
 
 
 function add(a,b) {
